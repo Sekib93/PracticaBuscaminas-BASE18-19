@@ -33,7 +33,7 @@ public class ActionBoton implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(juego.abrirCasilla(i,j)) {
 			ventana.mostrarNumMinasAlrededor(i, j);
-			
+			ventana.actualizarPuntuacion();
 		}
 		
 		if(juego.esFinJuego()) {
@@ -41,6 +41,7 @@ public class ActionBoton implements ActionListener{
 		} else if(juego.getMinasAlrededor(i, j)==-1) {
 			ventana.mostrarFinJuego(true);
 		}
+		
 	}
 
 }

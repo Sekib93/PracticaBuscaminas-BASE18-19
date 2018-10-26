@@ -41,6 +41,12 @@ public class ControlJuego {
 		puntuacion = 0;
 		// TODO: Repartir minas e inicializar puntaci�n. Si hubiese un tablero anterior,
 		// lo pongo todo a cero para inicializarlo.
+		for (int i = 0; i < tablero.length; i++) {
+			for (int j = 0; j < tablero[i].length; j++) {
+					tablero[i][j]= 0;
+				}
+			}
+		
 		for (int i = 0; i < MINAS_INICIALES; i++) {
 			do {
 				esMina = false;
@@ -161,6 +167,10 @@ public class ControlJuego {
 	 */
 	public int getPuntuacion() {
 		return puntuacion;
+	}
+	
+	public void setPuntuacion(int puntuacion) {
+		this.puntuacion = puntuacion;
 	}
 
 }
