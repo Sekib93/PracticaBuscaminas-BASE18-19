@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -139,7 +140,19 @@ public class VentanaPrincipal {
 	 * Método que inicializa todos los lísteners que necesita inicialmente el programa
 	 */
 	public void inicializarListeners(){
-		//TODO
+		
+		for (int i = 0; i < botonesJuego.length; i++) {
+			for (int j = 0; j < botonesJuego[i].length; j++) {
+				int num1 = i;
+				int num2 = j;
+				botonesJuego[i][j].addActionListener(new ActionBoton(juego, i, j, this));
+			}
+		}
+		
+		botonEmpezar.addActionListener((e)->{
+			System.out.println("2");
+			juego.inicializarPartida();
+		});
 	}
 	
 	
@@ -156,7 +169,16 @@ public class VentanaPrincipal {
 	 * @param j: posición horizontal de la celda.
 	 */
 	public void mostrarNumMinasAlrededor(int i , int j) {
-		//TODO
+		int opcion = juego.getMinasAlrededor(i, j);
+		
+		JLabel puntuacion;
+		panelesJuego[i][j].remove(0);
+		puntuacion = new JLabel(String.valueOf(opcion));
+		puntuacion.setHorizontalAlignment(0);
+		puntuacion.setForeground(correspondenciaColores[opcion]);
+		panelesJuego[i][j].add(puntuacion);
+		refrescarPantalla();
+
 	}
 	
 	
@@ -166,14 +188,20 @@ public class VentanaPrincipal {
 	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el juego.
 	 */
 	public void mostrarFinJuego(boolean porExplosion) {
-		//TODO
+		if(porExplosion) {
+			JOptionPane.showMessageDialog(ventana, "BOOOOOOOOM!!!, Más cuidado con las minas", "FIN", JOptionPane.INFORMATION_MESSAGE);
+		} else {
+			JOptionPane.showMessageDialog(ventana, "Has ganado la partida", "FIN", JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		
 	}
 
 	/**
 	 * Método que muestra la puntuación por pantalla.
 	 */
 	public void actualizarPuntuacion() {
-		//TODO
+		pantallaPuntuacion.setText(String.valueOf(juego.getPuntuacion()));
 	}
 	
 	/**
