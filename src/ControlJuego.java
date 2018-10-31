@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -8,7 +7,8 @@ import java.util.Random;
  * partida
  * 
  * @author Sergio Bejarano Martin
- *
+ * @version 1.1.0
+ * @since 1.0.0
  */
 public class ControlJuego {
 
@@ -30,8 +30,8 @@ public class ControlJuego {
 	/**
 	 * Método para generar un nuevo tablero de partida:
 	 * 
-	 * @pre: La estructura tablero debe existir.
-	 * @post: Al final el tablero se habrá inicializado con tantas minas como marque
+	 *  La estructura tablero debe existir.
+	 *  Al final el tablero se habrá inicializado con tantas minas como marque
 	 *        la variable MINAS_INICIALES. El resto de posiciones que no son minas
 	 *        guardan en el entero cuántas minas hay alrededor de la celda
 	 */
@@ -102,7 +102,7 @@ public class ControlJuego {
 	/**
 	 * Método que nos permite
 	 * 
-	 * @pre : La casilla nunca debe haber sido abierta antes, no es controlado por
+	 * La casilla nunca debe haber sido abierta antes, no es controlado por
 	 *      el ControlJuego. Por lo tanto siempre sumaremos puntos
 	 * @param i: posición verticalmente de la casilla a abrir
 	 * @param j: posición horizontalmente de la casilla a abrir
@@ -150,7 +150,7 @@ public class ControlJuego {
 	/**
 	 * Método que se utiliza para obtener las minas que hay alrededor de una celda
 	 * 
-	 * @pre : El tablero tiene que estar ya inicializado, por lo tanto no hace falta
+	 * El tablero tiene que estar ya inicializado, por lo tanto no hace falta
 	 *      calcularlo, símplemente consultarlo
 	 * @param i : posición vertical de la celda.
 	 * @param j : posición horizontal de la cela.
@@ -168,9 +168,6 @@ public class ControlJuego {
 	public int getPuntuacion() {
 		return puntuacion;
 	}
-	
-	public void setPuntuacion(int puntuacion) {
-		this.puntuacion = puntuacion;
-	}
+
 
 }

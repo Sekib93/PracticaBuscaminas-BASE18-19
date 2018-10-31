@@ -9,6 +9,9 @@ import javax.swing.JFrame;
  * Se puede lograr pasando en el constructor la referencia a la ventana.
  * Recuerda que desde la ventana, se puede acceder a la variable de tipo ControlJuego
  * @author Sergio Bejarano Martin
+ * @version 1.1.0
+ * @since 1.0.0
+ * 
  **
  */
 public class ActionBoton implements ActionListener{
@@ -35,7 +38,7 @@ public class ActionBoton implements ActionListener{
 			ventana.mostrarNumMinasAlrededor(i, j);
 			ventana.actualizarPuntuacion();
 		}
-		
+	
 		if(juego.esFinJuego()) {
 			ventana.mostrarFinJuego(false);
 		} else if(juego.getMinasAlrededor(i, j)==-1) {

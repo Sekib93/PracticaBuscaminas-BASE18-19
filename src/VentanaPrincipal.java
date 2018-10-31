@@ -6,13 +6,33 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
+/**
+ * Clase VentanaPrinciapl fdonde creamos todo lo referente a la ventana,
+ * frames, botones, paneles  e indicamos las funcionalidades de cada uno.
+ * 
+ * 
+ * @author Sergio Bejarano Martín
+ * @version 1.1.0
+ * @since 1.0.0
+ * @see ControlJuego
+ * {@link #inicializar()}
+ * {@link #inicializarComponentes()}
+ * <pre>
+ * public void inicializar() {
+ *		ventana.setVisible(true);
+ *		inicializarComponentes();
+ *		inicializarListeners();
+ *}
+ *</pre>
+ *
+ */
 public class VentanaPrincipal {
 
 	// La ventana principal, en este caso, guarda todos los componentes:
@@ -37,7 +57,12 @@ public class VentanaPrincipal {
 	// LA VENTANA GUARDA UN CONTROL DE JUEGO:
 	ControlJuego juego;
 
-	// Constructor, marca el tamaño y el cierre del frame
+	/**
+	 * Iniciamos el frame con el tamanio especificado
+	 * y la variable juego
+	 * 
+	 * 
+	 */
 	public VentanaPrincipal() {
 		ventana = new JFrame();
 		ventana.setBounds(100, 100, 700, 500);
@@ -45,7 +70,11 @@ public class VentanaPrincipal {
 		juego = new ControlJuego();
 	}
 
-	// Inicializa todos los componentes del frame
+	/**
+	 * Iniciamos todos los componentes del programa
+	 * 
+	 * 
+	 */
 	public void inicializarComponentes() {
 
 		// Definimos el layout:
@@ -140,9 +169,8 @@ public class VentanaPrincipal {
 			for (int j = 0; j < botonesJuego[i].length; j++) {
 				int num1 = i;
 				int num2 = j;
-				botonesJuego[i][j].addActionListener(new ActionBoton(juego, i, j, this));
+				botonesJuego[i][j].addActionListener(new ActionBoton(juego, i, j, this));}
 			}
-		}
 		
 		botonEmpezar.addActionListener(new ActionListener() {
 			
@@ -196,7 +224,7 @@ public class VentanaPrincipal {
 	 * @param porExplosion : Un booleano que indica si es final del juego porque ha
 	 *                     explotado una mina (true) o bien porque hemos desactivado
 	 *                     todas (false)
-	 * @post : Todos los botones se desactivan excepto el de volver a iniciar el
+	 * Todos los botones se desactivan excepto el de volver a iniciar el
 	 *       juego.
 	 */
 	public void mostrarFinJuego(boolean porExplosion) {
